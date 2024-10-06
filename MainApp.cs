@@ -3,8 +3,8 @@
 	class Transaction 
 	{
 		public string From { get; init; }	
-		public string To { get; init; }
-		public int Amount { get; init; }
+		public string To { get; init; } 
+		public int Amount { get; init; } = 0;
 
 		public override string ToString()
 		{
