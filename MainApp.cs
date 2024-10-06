@@ -1,10 +1,10 @@
 ﻿namespace ConsolePro
 {
-	class Transaction 
+	record RTransaction 
 	{
-		public string From { get; init; }	
-		public string To { get; init; } 
-		public int Amount { get; init; } = 0;
+		public string	From	{ get; init; }	
+		public string	To		{ get; init; } 
+		public int		Amount	{ get; init; } = 0;
 
 		public override string ToString()
 		{
@@ -16,13 +16,11 @@
 	{
 		static void Main(string[] args)
 		{
-			Transaction tr1 = new Transaction { From = "Alice", To = "Bob", Amount = 100 };
-			Transaction tr2 = new Transaction { From = "Bob", To = "Charlie", Amount = 50 };
-			Transaction tr3 = new Transaction { From = "Charlie", To = "Alice", Amount = 50 };
+			RTransaction tr1 = new RTransaction { From = "Alice", To = "Bob", Amount = 100 };
+			RTransaction tr2 = new RTransaction { From = "Alice", To = "Charlie", Amount = 100 };
 
 			Console.WriteLine(tr1); 
 			Console.WriteLine(tr2); 
-			Console.WriteLine(tr3); 
 		}
 	}
 }
