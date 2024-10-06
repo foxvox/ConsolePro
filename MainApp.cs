@@ -1,15 +1,14 @@
 ﻿namespace ConsolePro
 {
-	class BirthdyaInfo
+	class Transaction 
 	{
-		public string Name { get; set; }
-		public DateTime Birthday { get; set; }  
-		public int Age
+		public string From { get; init; }	
+		public string To { get; init; }
+		public int Amount { get; init; }
+
+		public override string ToString()
 		{
-			get
-			{
-				return new DateTime(DateTime.Now.Subtract(Birthday).Ticks).Year;
-			}
+			return $"{From,-10} -> {To,-10} : ${Amount}"; 
 		}
 	}
 
@@ -17,17 +16,13 @@
 	{
 		static void Main(string[] args)
 		{
-			BirthdyaInfo birth = new BirthdyaInfo();
-			Console.WriteLine($"Name: {birth.Name}");
-			Console.WriteLine($"Birthday: {birth.Birthday.ToShortDateString()}");
-			Console.WriteLine($"Age: {birth.Age}");
+			Transaction tr1 = new Transaction { From = "Alice", To = "Bob", Amount = 100 };
+			Transaction tr2 = new Transaction { From = "Bob", To = "Charlie", Amount = 50 };
+			Transaction tr3 = new Transaction { From = "Charlie", To = "Alice", Amount = 50 };
 
-			birth.Name = "서현";
-			birth.Birthday = new DateTime(1991, 6, 28);
-
-			Console.WriteLine($"Name: {birth.Name}");
-			Console.WriteLine($"Birthday: {birth.Birthday.ToShortDateString()}");
-			Console.WriteLine($"Age: {birth.Age}");
+			Console.WriteLine(tr1); 
+			Console.WriteLine(tr2); 
+			Console.WriteLine(tr3); 
 		}
 	}
 }
